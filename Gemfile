@@ -11,6 +11,7 @@ gem 'rspec-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'settingslogic'
+gem 'fb_graph'
 
 group :development, :test do
   gem 'tapp'

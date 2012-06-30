@@ -1,6 +1,6 @@
 # coding: utf-8
 class User < ActiveRecord::Base
-  attr_accessible :email, :icon_url, :name, :nickname, :provider, :uid
+  attr_accessible :email, :icon_url, :name, :nickname, :provider, :uid,
                   :token, :secret
 
   # relations
@@ -22,4 +22,19 @@ class User < ActiveRecord::Base
     )
     user
   end
+
+  def friends
+    uids = fb_friends.map(&:identifier)
+    User.where('uid in (?)', uids).all
+  end
+
+  private
+  def fb_user
+    FbGraph::User.fetch(nickname, :access_token => token)
+  end
+
+  def fb_friends
+    fb_user.friends
+  end
+
 end
