@@ -9,5 +9,12 @@
   .field
     = f.label :title
     = f.text_field :title
+  .field
+    %ul
+    -current_user.send(:fb_friends).each do |friend|
+      %li
+        = fields_for "group[members]", friend, :index => nil do |form|
+          = form.check_box :identifier, {checked: false}, friend.identifier
+        = friend.name
   .actions
     = f.submit 'Save'
