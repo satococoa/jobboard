@@ -1,6 +1,7 @@
 # coding: utf-8
 class User < ActiveRecord::Base
   attr_accessible :email, :icon_url, :name, :nickname, :provider, :uid
+                  :token, :secret
 
   # relations
   has_many :jobs # 依頼主として
@@ -15,7 +16,9 @@ class User < ActiveRecord::Base
       name: auth['info']['name'],
       nickname: auth['info']['nickname'],
       icon_url: auth['info']['image'],
-      email: auth['info']['email']
+      email: auth['info']['email'],
+      token: auth['credentials']['token'],
+      secret: auth['credentials']['secret']
     )
     user
   end
