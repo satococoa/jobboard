@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    %meta{:content => "application/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/css", "http-equiv" => "Content-Style-Type"}/
+    %meta{:content => "text/javascript", "http-equiv" => "Content-Script-Type"}/
+    /[if lt IE 9]
+      %script{:src => "http://html5shiv.googlecode.com/svn/trunk/html5.js"}
+      %script{:src => "#{@theme.path}/javascripts/PIE.js"}
+  %body
+    %header#header
+      .inner
+        .title
+          %h1 aaaaaa
+    #wrap
+      #main
+        = yield
+      %aside#sub
+        .tags
+          %h1 Tags
+          %ul
+      %footer#footer
+        .copyright
+          Copyright©
+          %a{:href => "/"}
+            aaaaa
+          All Rights Reserved
+        .poweredby
+          powered by
+          aaaa
