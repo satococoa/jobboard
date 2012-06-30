@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_filter :require_login
+  
   # GET /jobs
   # GET /jobs.json
   def index
