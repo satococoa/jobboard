@@ -1,0 +1,20 @@
+defaults: &defaults
+  facebook:
+    key: 301544269940687
+    secret: df4061a54a47119899c931a1e569fbc1
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  secret_token: <%= ENV['SECRET_TOKEN'] %>
+  slideshare:
+    key: <%= ENV['SLIDESHARE_KEY'] %>
+    secret: <%= ENV['SLIDESHARE_SECRET'] %>
+  twitter:
+    key: <%= ENV['TWITTER_KEY'] %>
+    secret: <%= ENV['TWITTER_SECRET'] %>
